@@ -1,15 +1,13 @@
 import '@styles/globals.css';
+import Nav from '@components/Nav';
+import Provider from '@components/Provider';
 
 export const metadata = {
   title: 'AIPrompts',
   description: 'Discover and share AI prompts',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body>
@@ -17,7 +15,10 @@ export default function RootLayout({
           <div className='gradient' />
         </div>
 
-        <main className='app'>{children}</main>
+        <main className='app'>
+          <Nav />
+          {children}
+        </main>
       </body>
     </html>
   );
