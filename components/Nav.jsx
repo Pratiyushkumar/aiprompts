@@ -57,7 +57,7 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <>
+                <React.Fragment key={provider.id}>
                   <button
                     type='button'
                     className='black_btn'
@@ -66,7 +66,7 @@ const Nav = () => {
                   >
                     Sign In
                   </button>
-                </>
+                </React.Fragment>
               ))}
           </>
         )}
@@ -117,7 +117,7 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <>
+                <React.Fragment key={provider.id}>
                   <button
                     type='button'
                     className='black_btn'
@@ -126,7 +126,7 @@ const Nav = () => {
                   >
                     Sign In
                   </button>
-                </>
+                </React.Fragment>
               ))}
           </>
         )}
