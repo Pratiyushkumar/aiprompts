@@ -9,6 +9,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const { data: session } = useSession();
   const [copied, setCopied] = useState('');
   const pathName = usePathname();
+  const router = useRouter();
 
   const handleCopy = () => {
     setCopied(post.prompt);
@@ -17,10 +18,20 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
       setCopied('');
     }, 3000);
   };
+
+  const handleProfileRedirect = (id, userName) => {
+    router.push(`/profile/${id}?name=${userName}`);
+  };
+
   return (
     <div className='prompt_card'>
       <div className='flex justify-netween items-start gap-5'>
-        <div className='flex-1 flex justify-start items-center gap-3 cursor-pointer'>
+        <div
+          className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
+          onClick={() =>
+            handleProfileRedirect(post.creator._id, post.creator.username)
+          }
+        >
           <Image
             src={post.creator.image}
             alt='user_image'
